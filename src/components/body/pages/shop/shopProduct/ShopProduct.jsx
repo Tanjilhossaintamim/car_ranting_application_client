@@ -61,6 +61,7 @@ const ShopProduct = ({ showToast }) => {
                 <div>
                   <select
                     name="category"
+                    id="category"
                     className="select select-bordered w-full max-w-xs"
                     value={values.category}
                     onChange={handleChange}
@@ -82,6 +83,7 @@ const ShopProduct = ({ showToast }) => {
                 <div>
                   <select
                     name="price"
+                    id="price"
                     onChange={handleChange}
                     className="select select-bordered w-full max-w-xs"
                     value={values.price}

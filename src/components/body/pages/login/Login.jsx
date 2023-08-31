@@ -88,7 +88,7 @@ const Login = ({ showToast }) => {
                       <input
                         type="email"
                         name="email"
-                        id=""
+                        id="email"
                         value={values.email}
                         onChange={handleChange}
                         placeholder="Enter Email Address"
@@ -105,7 +105,7 @@ const Login = ({ showToast }) => {
                         name="password"
                         value={values.password}
                         onChange={handleChange}
-                        id=""
+                        id="password"
                         placeholder="Enter Password"
                         className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                 focus:bg-white focus:outline-none"

@@ -131,6 +131,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="text"
                             name="firstName"
+                            id="firstName"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                             placeholder="John"
                             value={values.firstName}
@@ -150,6 +151,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="text"
                             name="lastName"
+                            id="lastName"
                             value={values.lastName}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                             placeholder="Smith"
@@ -171,6 +173,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="text"
                             name="phone"
+                            id="phone"
                             value={values.phone}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                             placeholder="01941758333"
@@ -193,6 +196,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="email"
                             name="email"
+                            id="email"
                             value={values.email}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                             placeholder="johnsmith@example.com"
@@ -215,6 +219,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="password"
                             name="password"
+                            id="password"
                             value={values.password}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                             placeholder="************"
@@ -243,6 +248,7 @@ const Signup = ({ showToast }) => {
                             <input
                               type="text"
                               name="shopName"
+                              id="shopName"
                               value={values.shopName}
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="shop"
@@ -260,6 +266,7 @@ const Signup = ({ showToast }) => {
                           <input
                             type="checkbox"
                             name="is_owner"
+                            id="is_owner"
                             className="checkbox"
                             value={values.is_owner}
                             onChange={handleChange}
