@@ -71,7 +71,7 @@ const Footer = () => {
             Sat <span className="text-slate-900">9.00AM-7.00PM</span>
           </p>
           <p className="py-6 text-color-gray-dark">
-            Sum <span className="text-slate-900">Closed</span>
+            Sun <span className="text-slate-900">Closed</span>
           </p>
         </div>
         {/* ........ */}
