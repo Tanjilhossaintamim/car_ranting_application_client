@@ -70,7 +70,7 @@ const ownerProduct = ({ showToast }) => {
             </div>
           </>
         ) : (
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-center md:flex-row md:justify-between items-center">
             <Skeleton />
             <Skeleton />
             <Skeleton />

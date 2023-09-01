@@ -42,10 +42,6 @@ const ShopProduct = ({ showToast }) => {
     // this function fecth catagory wise car
     dispatch(fetchShopProducts(`${BASEURL}/api/car/?catagory=${id}`));
   };
-  const getAllCar = () => {
-    // this function fetch all cars
-    dispatch(fetchShopProducts(`${BASEURL}/api/car/`));
-  };
 
   const filterCarByPrice = (url) => {
     dispatch(fetchShopProducts(url));
@@ -54,69 +50,58 @@ const ShopProduct = ({ showToast }) => {
     <section className="py-32">
       <div className="container">
         {/* catagory dropdown  */}
-        <Formik initialValues={{ category: "all", price: "filter" }}>
-          {({ values, handleChange }) => (
-            <form action="">
-              <div className="catagorydropdown mb-7 flex justify-between items-center">
-                <div>
-                  <select
-                    name="category"
-                    id="category"
-                    className="select select-bordered w-full max-w-xs"
-                    value={values.category}
-                    onChange={handleChange}
+
+        <div className="catagorydropdown mb-7 flex justify-between items-center">
+          <div className="dropdown dropdown-hover">
+            <label tabIndex={0} className="btn m-1">
+              Categories
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              {catagories?.map((category) => {
+                return (
+                  <li
+                    key={category.id}
+                    onClick={() => getCategoriwiseCar(category.id)}
                   >
-                    <option value={"all"} onClick={getAllCar}>
-                      All
-                    </option>
-                    {catagories?.map((category) => (
-                      <option
-                        key={category.id}
-                        value={category.id}
-                        onClick={() => getCategoriwiseCar(category.id)}
-                      >
-                        {category.title}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <select
-                    name="price"
-                    id="price"
-                    onChange={handleChange}
-                    className="select select-bordered w-full max-w-xs"
-                    value={values.price}
-                  >
-                    <option disabled value={"filter"}>
-                      Filter By Price
-                    </option>
-                    <option
-                      value={"gt"}
-                      onClick={() => {
-                        filterCarByPrice(
-                          `${BASEURL}/api/car/?catagory=&price__gt=50000000&price__lt=`
-                        );
-                      }}
-                    >
-                      Price up to 5 core
-                    </option>
-                    <option
-                      value={"lt"}
-                      onClick={() => {
-                        filterCarByPrice(
-                          `${BASEURL}/api/car/?catagory=&price__gt=&price__lt=50000000`
-                        );
-                      }}
-                    >
-                      Price less then 5 core
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </form>
-          )}
-        </Formik>
+                    <span>{category.title}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          {/* filter by price */}
+          <div className="dropdown dropdown-hover">
+            <label tabIndex={0} className="btn m-1">
+              Filter By Price
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li
+                onClick={() =>
+                  filterCarByPrice(
+                    `${BASEURL}/api/car/?catagory=&price__gt=50000000&price__lt=`
+                  )
+                }
+              >
+                <span>price up to 5 core</span>
+              </li>
+              <li
+                onClick={() =>
+                  filterCarByPrice(
+                    `${BASEURL}/api/car/?catagory=&price__gt=&price__lt=50000000`
+                  )
+                }
+              >
+                <span>price less then 5 core</span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         {/* product shorting dropdown */}
 
