@@ -1,10 +1,12 @@
 import axios from "axios";
 import React from "react";
 import { BsCartPlus } from "react-icons/bs";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BASEURL } from "../utils/BaseUrl";
+import { useDispatch } from "react-redux";
+import { fetchShopingCartProductProduct } from "../../redux/shopingCartSlice";
 const IconAddtoCartBtn = ({ carId, quantity, showToast }) => {
+  const dispatch = useDispatch();
   const addToCart = () => {
     const cart_id = localStorage.getItem("cart_id");
     if (cart_id) {
@@ -15,6 +17,7 @@ const IconAddtoCartBtn = ({ carId, quantity, showToast }) => {
           quantity: quantity,
         })
         .then((res) => {
+          dispatch(fetchShopingCartProductProduct(cart_id));
           showToast("Car Added To Your Cart !");
         })
         .catch((err) => {
@@ -28,7 +31,10 @@ const IconAddtoCartBtn = ({ carId, quantity, showToast }) => {
             car_id: carId,
             quantity: quantity,
           })
-          .then((res) => showToast("Car Added To Your Cart"))
+          .then((res) => {
+            showToast("Car Added To Your Cart");
+            dispatch(fetchShopingCartProductProduct(cart_id));
+          })
           .catch((err) => {
             showToast(`${err.message}`);
           });

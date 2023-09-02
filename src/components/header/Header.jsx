@@ -10,6 +10,7 @@ import { getSearchProducts } from "../../redux/searchProductSlice";
 import { BASEURL } from "../utils/BaseUrl";
 
 const Header = () => {
+  const { cartItem } = useSelector((state) => state.shopingCart);
   const [showSearchBox, setShowSearchBox] = useState(false);
   const [showHeader, setShowHeader] = useState("");
   const { token } = useSelector((state) => state.login);
@@ -144,7 +145,11 @@ const Header = () => {
                 className="hidden lg:flex justify-center items-center text-lg cursor-pointer font-bold text-color-green-dark"
                 whileTap={{ scale: 1.1 }}
               >
-                <BsCartPlus color="gray" size={"25px"} />
+                <BsCartPlus color="gray" size={"25px"} />{" "}
+                <span className="badge badge-secondary">
+                  {" "}
+                  {cartItem?.items?.length ? cartItem.items.length : 0}
+                </span>
               </motion.div>
             </Link>
 
@@ -161,7 +166,8 @@ const Header = () => {
               <ProfileDropDown />
             )}
             <div className="lg:hidden cursor-pointer" onClick={toggleNavbar}>
-              <CiMenuFries size={28} />
+              <CiMenuFries size={28} />{" "}
+              <span className="text-red-900">{cartItem?.items?.length}</span>
             </div>
           </div>
         </div>
